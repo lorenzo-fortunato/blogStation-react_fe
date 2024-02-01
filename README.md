@@ -4,7 +4,7 @@ Momentaneamente viene utilizzato anche il framework Express.js per gestire l'aut
 
 Per lanciare correttamente l'app:
 
-    1. da terminale recarsi nella cartella e lanciare il file server.js, necessario per simulare il server necessario alla login, con il comando:
+    1. da terminale recarsi nella cartella e lanciare il file server.js, che serve per simulare il server necessario alla login, con il comando:
     -   node server.js
 
     2. aprire un altro terminale, recarsi nella cartella e lanciare il comando:
