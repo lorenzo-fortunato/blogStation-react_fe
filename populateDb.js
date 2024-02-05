@@ -15,11 +15,11 @@ const app = express();
 app.use(express.json());
 
 // populate db blogs table
-for(let i = 0; i <= 10; i++) {
+for(let i = 0; i <= 5; i++) {
     const dataPopulate = {
         title: falso.randText({ charCount: 20 }),
         body: falso.randLine({ lineCount: 100 }),
-        author: 'mario'
+        author: 'luigi'
     }
 
     const sqlPopulate = 'INSERT INTO blogs SET ?'
