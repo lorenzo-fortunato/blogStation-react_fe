@@ -1,6 +1,13 @@
 App creata con l'utilizzo di React.js volta allo studio di questa tecnologia.
 
-Momentaneamente viene utilizzato anche il framework Express.js per gestire l'autenticazione (questa al momento è parziale, non ha vincoli di accesso).
+In ./api è presente lo script server.js (creato utilizzando Express.js) che gestisce la parte backend dell'applicazione. Questo file in particolare:
+    -    gestisce la connessione al database (mysql)
+    -    gestisce il meccanismo di login (JWT)
+    -    fornisce gli endpoint necessari al funzionamento dell'applicazione (api)
+
+Il file populateDb.js non è necessario al funzionamento dell'app, ma permette di popolare la tabella blogs del database velocemente con dati randomici (a questo scopo è stata utilizzata la libreria @ngneat/falso).
+
+---------------------------------------------------------------------------------------------------------------------
 
 Per lanciare correttamente l'app:
 
@@ -8,11 +15,6 @@ Per lanciare correttamente l'app:
     -   node server.js
 
     2. aprire un altro terminale, recarsi nella cartella e lanciare il comando:
-    -   npx json-server --watch data/db.json -p 8000
-    per utilizzare json server verso il file json utilizzato come momentanea sorgente dati
-
-    3. aprire un altro terminale, recarsi nella cartella e lanciare il comando:
     -   npm run start
     per avviare l'applicazione react
 
-NB: il punto 1 e 2 cono momentanei, sto provvedendo a sviluppare un backend ed un db completi che permettano di rendere il tutto più congruente
