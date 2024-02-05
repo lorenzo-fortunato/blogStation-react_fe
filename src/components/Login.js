@@ -8,29 +8,36 @@ async function loginUser(credentials) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
-    }).then(data => data.json())
+    })
+    .then(data => data.json());
 }
 
 const Login = ({ setToken }) => {
     const [user, setUser] = useState('');
     const [password, setPwd] = useState('');
-    const [isLogged, setIsLogged] = useState(false);
+    const [isWrongCredentials, setIsWrongCredentials] = useState(false);
     const [isPending, setIsPending] = useState(false);
 
     const handleLogin = async e => {
         e.preventDefault();
 
-        const token = await loginUser({
-            user,
-            password
-        });
-        setToken(token);
+        try {
+            const token = await loginUser({
+                user,
+                password
+            });
+            setToken(token);
+        } catch(error) {
+            console.log("wrong");
+            setIsWrongCredentials(true);
+        }
 
         setIsPending(true);
     };
 
     const handleFocus = () => {
-        setIsLogged(false);
+        setIsWrongCredentials(false);
+        setIsPending(false);
     }
 
     return (
@@ -54,10 +61,9 @@ const Login = ({ setToken }) => {
                     onChange={(e) => setPwd(e.target.value)}
                     onFocus={handleFocus}
                 />
-                {!isPending && <button>Login</button>}
-                {isPending && <button disabled>Loging in...</button>}
+                { isWrongCredentials && <div>Wrong credentials, please retry with others</div> }
+                { !isPending ? <button>Login</button> : <button disabled>Logging in...</button> }
             </form>
-            {isLogged && <div>Wrong credentials, please retry with others</div>}
         </div>
     );
 }
