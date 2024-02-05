@@ -16,7 +16,7 @@ const Navbar = () => {
             <div className="links">
                 <Link to="/" >Home</Link>
                 <Link to="/create">New Blog</Link>
-                <button onClick={handleLogout}>Logout</button>
+                <button className="logoutBtn" onClick={handleLogout}>Logout</button>
             </div>
         </nav>
     );

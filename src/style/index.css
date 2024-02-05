@@ -17,8 +17,8 @@ button {
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
-  margin-left: 15px;
   width: 75px;
+  margin: 20px 0px;
 }
 
 button:hover {
@@ -56,6 +56,10 @@ button:hover {
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
+}
+
+.logoutBtn {
+  margin-left: 15px;
 }
 
 /* blog list */

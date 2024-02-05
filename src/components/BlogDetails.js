@@ -11,22 +11,29 @@ const handleClick = () => {
         method: 'DELETE'
     }).then(() => {
         history.push('/');
-    })
-}
+    });
+};
+
+const handleGoingBack = () => {
+    history.go(-1);
+};
 
     return ( 
+        <>
+        <button className="goBack" onClick={handleGoingBack}>Back</button>
         <div className="blog-details">
-            { isPending && <div>Loading...</div> }
-            { error && <div>{ error }</div> }
-            { blog && (
+            {isPending && <div>Loading...</div>}
+            {error && <div>{error}</div>}
+            {blog && (
                 <article>
-                    <h2>{ blog[0].title }</h2>
-                    <p>Written by { blog[0].author }</p>
-                    <div>{ blog[0].body }</div>
-                    <button onClick={handleClick}>Delete</button>
+                    <h2>{blog[0].title}</h2>
+                    <p>Written by {blog[0].author}</p>
+                    <div>{blog[0].body}</div>
+                    <button className="toDelete" onClick={handleClick}>Delete</button>
                 </article>
-            ) }
+            )}
         </div>
+        </>
      );
 }
  
